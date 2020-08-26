@@ -9,7 +9,9 @@
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
-    "@oclif/plugin-help": "^3"
+    "@oclif/plugin-help": "^3",
+    "dateformat": "^3.0.3",
+    "sentiment": "^5.0.2"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1",
