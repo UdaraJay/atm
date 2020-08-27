@@ -19,7 +19,7 @@ $ npm install -g doki
 $ doki COMMAND
 running command...
 $ doki (-v|--version|version)
-doki/0.0.0 darwin-x64 node-v10.16.0
+doki/0.1.0 darwin-x64 node-v10.16.0
 $ doki --help [COMMAND]
 USAGE
   $ doki COMMAND
@@ -28,28 +28,9 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`doki hello`](#doki-hello)
 * [`doki help [COMMAND]`](#doki-help-command)
 * [`doki log`](#doki-log)
-* [`doki review`](#doki-review)
-
-## `doki hello`
-
-Describe the command here
-
-```
-USAGE
-  $ doki hello
-
-OPTIONS
-  -n, --name=name  name to print
-
-DESCRIPTION
-  ...
-  Extra documentation goes here
-```
-
-_See code: [src/commands/hello.js](https://github.com/UdaraJay/doki/blob/v0.0.0/src/commands/hello.js)_
+* [`doki review [TIMESPAN]`](#doki-review-timespan)
 
 ## `doki help [COMMAND]`
 
@@ -70,7 +51,7 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.0
 
 ## `doki log`
 
-Describe the command here
+Add a new log
 
 ```
 USAGE
@@ -79,29 +60,18 @@ USAGE
 OPTIONS
   -m, --message=message  message
   -t, --type=type        type
-
-DESCRIPTION
-  ...
-  Extra documentation goes here
 ```
 
-_See code: [src/commands/log.js](https://github.com/UdaraJay/doki/blob/v0.0.0/src/commands/log.js)_
+_See code: [src/commands/log.js](https://github.com/UdaraJay/doki/blob/v0.1.0/src/commands/log.js)_
 
-## `doki review`
+## `doki review [TIMESPAN]`
 
-Describe the command here
+A summary of your logs
 
 ```
 USAGE
-  $ doki review
-
-OPTIONS
-  -n, --name=name  name to print
-
-DESCRIPTION
-  ...
-  Extra documentation goes here
+  $ doki review [TIMESPAN]
 ```
 
-_See code: [src/commands/review.js](https://github.com/UdaraJay/doki/blob/v0.0.0/src/commands/review.js)_
+_See code: [src/commands/review.js](https://github.com/UdaraJay/doki/blob/v0.1.0/src/commands/review.js)_
 <!-- commandsstop -->
