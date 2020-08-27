@@ -2,7 +2,7 @@ const os = require("os");
 const dateFormat = require("dateformat");
 
 const homedir = os.homedir();
-const dir = `${homedir}/doki_logs`;
+const dir = `${homedir}/atm_logs`;
 
 const getLastXFilePaths = (x = 7) => {
   const result = [];

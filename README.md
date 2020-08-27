@@ -1,9 +1,9 @@
-# doki
+# atm
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/doki.svg)](https://npmjs.org/package/doki)
-[![Downloads/week](https://img.shields.io/npm/dw/doki.svg)](https://npmjs.org/package/doki)
-[![License](https://img.shields.io/npm/l/doki.svg)](https://github.com/UdaraJay/doki/blob/master/package.json)
+[![Version](https://img.shields.io/npm/v/atm.svg)](https://npmjs.org/package/atm)
+[![Downloads/week](https://img.shields.io/npm/dw/atm.svg)](https://npmjs.org/package/atm)
+[![License](https://img.shields.io/npm/l/atm.svg)](https://github.com/UdaraJay/atm/blob/master/package.json)
 
 <!-- toc -->
 
@@ -16,14 +16,14 @@
 <!-- usage -->
 
 ```sh-session
-$ npm install -g doki
-$ doki COMMAND
+$ npm install -g atm
+$ atm COMMAND
 running command...
-$ doki (-v|--version|version)
-doki/0.1.0 darwin-x64 node-v10.16.0
-$ doki --help [COMMAND]
+$ atm (-v|--version|version)
+atm/0.1.0 darwin-x64 node-v10.16.0
+$ atm --help [COMMAND]
 USAGE
-  $ doki COMMAND
+  $ atm COMMAND
 ...
 ```
 
@@ -33,17 +33,17 @@ USAGE
 
 <!-- commands -->
 
-- [`doki help [COMMAND]`](#doki-help-command)
-- [`doki log`](#doki-log)
-- [`doki review [TIMESPAN]`](#doki-review-timespan)
+- [`atm help [COMMAND]`](#atm-help-command)
+- [`atm log`](#atm-log)
+- [`atm review [TIMESPAN]`](#atm-review-timespan)
 
-## `doki help [COMMAND]`
+## `atm help [COMMAND]`
 
-display help for doki
+display help for atm
 
 ```
 USAGE
-  $ doki help [COMMAND]
+  $ atm help [COMMAND]
 
 ARGUMENTS
   COMMAND  command to show help for
@@ -54,30 +54,30 @@ OPTIONS
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.0/src/commands/help.ts)_
 
-## `doki log`
+## `atm log`
 
 Add a new log
 
 ```
 USAGE
-  $ doki log
+  $ atm log
 
 OPTIONS
   -m, --message=message  message
   -t, --type=type        type
 ```
 
-_See code: [src/commands/log.js](https://github.com/UdaraJay/doki/blob/v0.1.0/src/commands/log.js)_
+_See code: [src/commands/log.js](https://github.com/UdaraJay/atm/blob/v0.1.0/src/commands/log.js)_
 
-## `doki review [TIMESPAN]`
+## `atm review [TIMESPAN]`
 
 A summary of your logs
 
 ```
 USAGE
-  $ doki review [TIMESPAN]
+  $ atm review [TIMESPAN]
 ```
 
-_See code: [src/commands/review.js](https://github.com/UdaraJay/doki/blob/v0.1.0/src/commands/review.js)_
+_See code: [src/commands/review.js](https://github.com/UdaraJay/atm/blob/v0.1.0/src/commands/review.js)_
 
 <!-- commandsstop -->

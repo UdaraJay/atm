@@ -8,7 +8,7 @@ const fileAccessor = require("../utils/file");
 class LogCommand extends Command {
   async run() {
     const homedir = os.homedir();
-    const dir = `${homedir}/doki_logs`;
+    const dir = `${homedir}/atm_logs`;
     const now = new Date();
     const time = dateFormat(now, "HH:MM");
     const filePath = fileAccessor.getCurrentFilePath();
