@@ -1,8 +1,29 @@
+const fs = require("fs");
 const os = require("os");
 const dateFormat = require("dateformat");
-
 const homedir = os.homedir();
 const dir = `${homedir}/atm_logs`;
+
+const timeStamp = () => {
+  const now = new Date();
+  return dateFormat(now, "HH:MM");
+};
+
+const writeLineToCurrentFile = (line) => {
+  const lineWithEOL = line + os.EOL;
+  const filePath = getCurrentFilePath();
+
+  fs.mkdir(dir, { recursive: true }, (err) => {
+    if (err) console.log(err);
+  });
+
+  if (line) {
+    fs.appendFile(filePath, lineWithEOL, function (err) {
+      if (err) console.log(`🤖 Something went wrong`);
+      console.log(`👏 Logged to ${filePath}`);
+    });
+  }
+};
 
 const getLastXFilePaths = (x = 7) => {
   const result = [];
@@ -29,3 +50,6 @@ const getCurrentFilePath = () => {
 
 exports.getCurrentFilePath = getCurrentFilePath;
 exports.getLastXFilePaths = getLastXFilePaths;
+exports.writeLineToCurrentFile = writeLineToCurrentFile;
+exports.timeStamp = timeStamp;
+exports.dir = dir;

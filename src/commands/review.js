@@ -2,6 +2,7 @@ const { Command } = require("@oclif/command");
 const fs = require("fs");
 const fileAccessor = require("../utils/file");
 const readEachLineSync = require("read-each-line-sync");
+const asciichart = require("asciichart");
 
 const calculateMedian = (array) => {
   array.sort(function (a, b) {
@@ -24,9 +25,11 @@ class ReviewCommand extends Command {
     const timeUnit = timeUnits[args.timespan];
     const filePaths = fileAccessor.getLastXFilePaths(timeUnit);
     let types = [];
+    let moods = [];
 
     // stats
     const sentiments = [];
+    const sentimentsForGraphing = [];
 
     filePaths.forEach((filePath) => {
       if (!fs.existsSync(filePath)) {
@@ -42,6 +45,8 @@ class ReviewCommand extends Command {
         const metaStringList = metaString.split(",");
         const metaData = [];
 
+        const message = a[3].trim();
+
         metaStringList.forEach((meta) => {
           const metaVars = meta.split(":");
           metaData[metaVars[0]] = metaVars[1];
@@ -52,9 +57,14 @@ class ReviewCommand extends Command {
           parseInt(metaData.sentiment) != 0
         ) {
           sentiments.push(parseInt(metaData.sentiment));
+          sentimentsForGraphing.push(parseInt(metaData.sentiment));
         }
 
         isNaN(types[type]) ? (types[type] = 1) : (types[type] += 1);
+
+        if (type == "mood") {
+          isNaN(moods[message]) ? (moods[message] = 1) : (moods[message] += 1);
+        }
       });
     });
 
@@ -63,9 +73,17 @@ class ReviewCommand extends Command {
 
     const median = calculateMedian(sentiments);
 
+    console.log("Summary of all logs");
     console.table(types);
+    console.log("Mood(s) in timespan");
+    console.table(moods);
     console.log("Average sentiment:", Math.round(averageSentiment));
     console.log("Median sentiment: ", Math.round(median));
+    console.log();
+    console.log("Sentiment over time period");
+    console.log(
+      asciichart.plot(sentimentsForGraphing.reverse(), { height: 8 })
+    );
   }
 }
 

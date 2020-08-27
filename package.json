@@ -13,7 +13,9 @@
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",
+    "asciichart": "^1.5.25",
     "dateformat": "^3.0.3",
+    "inquirer": "^7.3.3",
     "read-each-line-sync": "^1.0.5",
     "sentiment": "^5.0.2"
   },
@@ -24,7 +26,7 @@
     "globby": "^10"
   },
   "engines": {
-    "node": ">=10.16.0"
+    "node": ">=8.0.0"
   },
   "files": [
     "/bin",
