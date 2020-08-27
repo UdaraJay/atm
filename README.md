@@ -1,7 +1,4 @@
-doki
-====
-
-
+# doki
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/doki.svg)](https://npmjs.org/package/doki)
@@ -9,11 +6,15 @@ doki
 [![License](https://img.shields.io/npm/l/doki.svg)](https://github.com/UdaraJay/doki/blob/master/package.json)
 
 <!-- toc -->
-* [Usage](#usage)
-* [Commands](#commands)
+
+- [Usage](#usage)
+- [Commands](#commands)
 <!-- tocstop -->
+
 # Usage
+
 <!-- usage -->
+
 ```sh-session
 $ npm install -g doki
 $ doki COMMAND
@@ -25,12 +26,16 @@ USAGE
   $ doki COMMAND
 ...
 ```
+
 <!-- usagestop -->
+
 # Commands
+
 <!-- commands -->
-* [`doki help [COMMAND]`](#doki-help-command)
-* [`doki log`](#doki-log)
-* [`doki review [TIMESPAN]`](#doki-review-timespan)
+
+- [`doki help [COMMAND]`](#doki-help-command)
+- [`doki log`](#doki-log)
+- [`doki review [TIMESPAN]`](#doki-review-timespan)
 
 ## `doki help [COMMAND]`
 
@@ -74,4 +79,5 @@ USAGE
 ```
 
 _See code: [src/commands/review.js](https://github.com/UdaraJay/doki/blob/v0.1.0/src/commands/review.js)_
+
 <!-- commandsstop -->

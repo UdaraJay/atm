@@ -1,11 +1,11 @@
 {
-  "name": "doki",
+  "name": "atm",
   "version": "0.1.0",
   "author": "Udara Jay @UdaraJay",
   "bin": {
-    "doki": "./bin/run"
+    "atm": "./bin/run"
   },
-  "bugs": "https://github.com/UdaraJay/doki/issues",
+  "bugs": "https://github.com/UdaraJay/atm/issues",
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
@@ -29,7 +29,7 @@
     "/oclif.manifest.json",
     "/src"
   ],
-  "homepage": "https://github.com/UdaraJay/doki",
+  "homepage": "https://github.com/UdaraJay/atm",
   "keywords": [
     "oclif"
   ],
@@ -37,12 +37,12 @@
   "main": "src/index.js",
   "oclif": {
     "commands": "./src/commands",
-    "bin": "doki",
+    "bin": "atm",
     "plugins": [
       "@oclif/plugin-help"
     ]
   },
-  "repository": "UdaraJay/doki",
+  "repository": "UdaraJay/atm",
   "scripts": {
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "eslint .",
