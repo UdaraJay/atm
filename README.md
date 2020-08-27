@@ -14,21 +14,9 @@ Think software log files, but for you. They're versatile, easy to backup and are
 
 ## Installation
 
-<!-- usage -->
-
 ```sh-session
 $ npm install -g @udarajay/atm
-$ atm COMMAND
-running command...
-$ atm (-v|--version|version)
-@udarajay/atm/0.1.2 darwin-x64 node-v10.16.0
-$ atm --help [COMMAND]
-USAGE
-  $ atm COMMAND
-...
 ```
-
-<!-- usagestop -->
 
 ## Usage
 
