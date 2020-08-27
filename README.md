@@ -19,7 +19,7 @@ $ npm install -g @udarajay/atm
 $ atm COMMAND
 running command...
 $ atm (-v|--version|version)
-@udarajay/atm/0.1.0 darwin-x64 node-v10.16.0
+@udarajay/atm/0.1.1 darwin-x64 node-v10.16.0
 $ atm --help [COMMAND]
 USAGE
   $ atm COMMAND
@@ -64,7 +64,7 @@ OPTIONS
   -t, --type=type        type
 ```
 
-_See code: [src/commands/log.js](https://github.com/UdaraJay/atm/blob/v0.1.0/src/commands/log.js)_
+_See code: [src/commands/log.js](https://github.com/UdaraJay/atm/blob/v0.1.1/src/commands/log.js)_
 
 ## `atm review [TIMESPAN]`
 
@@ -75,5 +75,5 @@ USAGE
   $ atm review [TIMESPAN]
 ```
 
-_See code: [src/commands/review.js](https://github.com/UdaraJay/atm/blob/v0.1.0/src/commands/review.js)_
+_See code: [src/commands/review.js](https://github.com/UdaraJay/atm/blob/v0.1.1/src/commands/review.js)_
 <!-- commandsstop -->
