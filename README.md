@@ -1,79 +1,50 @@
-# atm
+## atm – at the moment.
 
-[![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/atm.svg)](https://npmjs.org/package/atm)
-[![Downloads/week](https://img.shields.io/npm/dw/atm.svg)](https://npmjs.org/package/atm)
-[![License](https://img.shields.io/npm/l/atm.svg)](https://github.com/UdaraJay/atm/blob/master/package.json)
+### A personal logging and tracking CLI.
 
-<!-- toc -->
-* [atm](#atm)
-* [Usage](#usage)
-* [Commands](#commands)
-<!-- tocstop -->
+A straightforward command-line interface for logging anything you want and reviewing it later. Log anything about your day via command-line.
 
-# Usage
+## Inspiration
+
+Think software log files, but for you. They're versatile, easy to backup and parse. I got frustrated by having to use multiple apps for logging my daily activities, mood etc. The data gets fragment across all these different apps and you get no flexibility around how you get to view and analyse that data later.
+
+`atm` is simple. It create a log file in your `user` folder for everyday you log. One line per log.
+
+# Installation
 
 <!-- usage -->
+
 ```sh-session
 $ npm install -g @udarajay/atm
-$ atm COMMAND
-running command...
-$ atm (-v|--version|version)
-@udarajay/atm/0.1.1 darwin-x64 node-v10.16.0
-$ atm --help [COMMAND]
-USAGE
-  $ atm COMMAND
-...
 ```
+
 <!-- usagestop -->
 
-# Commands
-
-<!-- commands -->
-* [`atm help [COMMAND]`](#atm-help-command)
-* [`atm log`](#atm-log)
-* [`atm review [TIMESPAN]`](#atm-review-timespan)
-
-## `atm help [COMMAND]`
-
-display help for atm
-
-```
-USAGE
-  $ atm help [COMMAND]
-
-ARGUMENTS
-  COMMAND  command to show help for
-
-OPTIONS
-  --all  see all commands in CLI
-```
-
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.0/src/commands/help.ts)_
+## Usage
 
 ## `atm log`
 
-Add a new log
+Accepts a `-m` flag for the `message` and `-t` flag for `type`.
 
+Example:
+
+```sh-session
+$ atm log -m "Good morning"
+👏 Logged to /Users/user/atm_logs/27-08-2020.txt
+
+$ atm log -m "Published first version of atm" -t done
+👏 Logged to /Users/user/atm_logs/27-08-2020.txt
+
+$ atm log -m smoothie -t drank
+$ atm review
+┌─────────┬────────┐
+│ (index) │ Values │
+├─────────┼────────┤
+│   log   │   1    │
+│  drank  │   1    │
+└─────────┴────────┘
+Average sentiment: 3
+Median sentiment:  3
 ```
-USAGE
-  $ atm log
 
-OPTIONS
-  -m, --message=message  message
-  -t, --type=type        type
-```
-
-_See code: [src/commands/log.js](https://github.com/UdaraJay/atm/blob/v0.1.1/src/commands/log.js)_
-
-## `atm review [TIMESPAN]`
-
-A summary of your logs
-
-```
-USAGE
-  $ atm review [TIMESPAN]
-```
-
-_See code: [src/commands/review.js](https://github.com/UdaraJay/atm/blob/v0.1.1/src/commands/review.js)_
-<!-- commandsstop -->
+## Features
