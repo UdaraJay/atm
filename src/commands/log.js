@@ -3,6 +3,7 @@ const fs = require("fs");
 const os = require("os");
 const dateFormat = require("dateformat");
 const Sentiment = require("sentiment");
+const fileAccessor = require("../utils/file");
 
 class LogCommand extends Command {
   async run() {
@@ -10,8 +11,7 @@ class LogCommand extends Command {
     const dir = `${homedir}/doki_logs`;
     const now = new Date();
     const time = dateFormat(now, "HH:MM");
-    const fileName = dateFormat(now, "dd-mm-yyyy");
-    const filePath = `${dir}/${fileName}.txt`;
+    const filePath = fileAccessor.getCurrentFilePath();
 
     const { flags } = this.parse(LogCommand);
     const message = flags.message || "null";
@@ -20,7 +20,7 @@ class LogCommand extends Command {
     const sentiment = new Sentiment();
     const sentimentScore = sentiment.analyze(message);
 
-    const composedMessage = `${time} | ${type} | score:${sentimentScore.score} | ${message}${os.EOL}`;
+    const composedMessage = `${time} | ${type} | sentiment:${sentimentScore.score} | ${message}${os.EOL}`;
 
     fs.mkdir(dir, { recursive: true }, (err) => {
       if (err) console.log(err);
@@ -35,10 +35,7 @@ class LogCommand extends Command {
   }
 }
 
-LogCommand.description = `Describe the command here
-...
-Extra documentation goes here
-`;
+LogCommand.description = "Add a new log";
 
 LogCommand.flags = {
   message: flags.string({ char: "m", description: "message" }),

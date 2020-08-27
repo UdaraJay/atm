@@ -30,7 +30,8 @@ USAGE
 <!-- commands -->
 * [`doki hello`](#doki-hello)
 * [`doki help [COMMAND]`](#doki-help-command)
-* [`doki test`](#doki-test)
+* [`doki log`](#doki-log)
+* [`doki review`](#doki-review)
 
 ## `doki hello`
 
@@ -67,13 +68,32 @@ OPTIONS
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.0/src/commands/help.ts)_
 
-## `doki test`
+## `doki log`
 
 Describe the command here
 
 ```
 USAGE
-  $ doki test
+  $ doki log
+
+OPTIONS
+  -m, --message=message  message
+  -t, --type=type        type
+
+DESCRIPTION
+  ...
+  Extra documentation goes here
+```
+
+_See code: [src/commands/log.js](https://github.com/UdaraJay/doki/blob/v0.0.0/src/commands/log.js)_
+
+## `doki review`
+
+Describe the command here
+
+```
+USAGE
+  $ doki review
 
 OPTIONS
   -n, --name=name  name to print
@@ -83,5 +103,5 @@ DESCRIPTION
   Extra documentation goes here
 ```
 
-_See code: [src/commands/test.js](https://github.com/UdaraJay/doki/blob/v0.0.0/src/commands/test.js)_
+_See code: [src/commands/review.js](https://github.com/UdaraJay/doki/blob/v0.0.0/src/commands/review.js)_
 <!-- commandsstop -->

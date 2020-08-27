@@ -1518,6 +1518,11 @@ ramda@^0.26.1:
   resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.26.1.tgz#8d41351eb8111c55353617fc3bbffad8e4d35d06"
   integrity sha512-hLWjpy7EnsDBb0p+Z3B7rPi3GDeRG5ZtiI33kJhTt+ORCd38AbAIjB/9zRIUoeTbE/AVX5ZkU7m6bznsvrf8eQ==
 
+read-each-line-sync@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/read-each-line-sync/-/read-each-line-sync-1.0.5.tgz#3de3dfa8f950d14b5ec89e62147aa158b901b455"
+  integrity sha1-PePfqPlQ0UteyJ5iFHqhWLkBtFU=
+
 readable-stream@^3.1.1, readable-stream@^3.4.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-3.6.0.tgz#337bbda3adc0706bd3e024426a286d4b4b2c9198"

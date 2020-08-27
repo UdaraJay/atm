@@ -1,7 +1,7 @@
 {
   "name": "doki",
   "version": "0.0.0",
-  "author": "UdaraJay @UdaraJay",
+  "author": "Udara Jay @UdaraJay",
   "bin": {
     "doki": "./bin/run"
   },
@@ -11,6 +11,7 @@
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",
     "dateformat": "^3.0.3",
+    "read-each-line-sync": "^1.0.5",
     "sentiment": "^5.0.2"
   },
   "devDependencies": {
@@ -20,7 +21,7 @@
     "globby": "^10"
   },
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=10.16.0"
   },
   "files": [
     "/bin",
