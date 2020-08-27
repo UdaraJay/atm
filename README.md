@@ -6,36 +6,33 @@
 [![License](https://img.shields.io/npm/l/atm.svg)](https://github.com/UdaraJay/atm/blob/master/package.json)
 
 <!-- toc -->
-
-- [Usage](#usage)
-- [Commands](#commands)
+* [atm](#atm)
+* [Usage](#usage)
+* [Commands](#commands)
 <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
-
 ```sh-session
-$ npm install -g atm
+$ npm install -g @udarajay/atm
 $ atm COMMAND
 running command...
 $ atm (-v|--version|version)
-atm/0.1.0 darwin-x64 node-v10.16.0
+@udarajay/atm/0.1.0 darwin-x64 node-v10.16.0
 $ atm --help [COMMAND]
 USAGE
   $ atm COMMAND
 ...
 ```
-
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-
-- [`atm help [COMMAND]`](#atm-help-command)
-- [`atm log`](#atm-log)
-- [`atm review [TIMESPAN]`](#atm-review-timespan)
+* [`atm help [COMMAND]`](#atm-help-command)
+* [`atm log`](#atm-log)
+* [`atm review [TIMESPAN]`](#atm-review-timespan)
 
 ## `atm help [COMMAND]`
 
@@ -79,5 +76,4 @@ USAGE
 ```
 
 _See code: [src/commands/review.js](https://github.com/UdaraJay/atm/blob/v0.1.0/src/commands/review.js)_
-
 <!-- commandsstop -->

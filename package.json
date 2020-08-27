@@ -1,7 +1,10 @@
 {
-  "name": "atm",
+  "name": "@udarajay/atm",
   "version": "0.1.0",
   "author": "Udara Jay @UdaraJay",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "bin": {
     "atm": "./bin/run"
   },
