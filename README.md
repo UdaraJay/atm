@@ -4,6 +4,8 @@
 
 A straightforward command-line interface for logging anything about your day and reviewing it later.
 
+![](./preview.png)
+
 ## Inspiration
 
 Think software log files, but for you. They're versatile, easy to backup and are straightforward to parse for any data analysis you want to do. I got frustrated with having to use multiple apps for logging my daily activities, mood, food etc. The data gets fragment across all these different apps and you get no flexibility around how you get to view and analyse that data later.

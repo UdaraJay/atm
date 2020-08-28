@@ -33,7 +33,8 @@
   ],
   "homepage": "https://github.com/UdaraJay/atm",
   "keywords": [
-    "oclif"
+    "cli",
+    "logging"
   ],
   "license": "MIT",
   "main": "src/index.js",
