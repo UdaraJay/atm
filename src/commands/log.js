@@ -16,7 +16,7 @@ class LogCommand extends Command {
 
     const composedMessage = `${time} | ${type} | sentiment:${sentimentScore.score} | ${message}`;
 
-    fileAccessor.writeLineToCurrentFile(composedMessage);
+    fileAccessor.writeLineToCurrentFile(composedMessage, type);
   }
 }
 

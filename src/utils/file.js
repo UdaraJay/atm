@@ -9,7 +9,7 @@ const timeStamp = () => {
   return dateFormat(now, "HH:MM");
 };
 
-const writeLineToCurrentFile = (line) => {
+const writeLineToCurrentFile = (line, type = null) => {
   const lineWithEOL = line + os.EOL;
   const filePath = getCurrentFilePath();
 
@@ -20,8 +20,19 @@ const writeLineToCurrentFile = (line) => {
   if (line) {
     fs.appendFile(filePath, lineWithEOL, function (err) {
       if (err) console.log(`🤖 Something went wrong`);
+
       console.log(`👏 Logged to ${filePath}`);
+      console.log("🧠", getRandomQuote());
     });
+
+    // If it's a quote then also write to a dedicated file
+    // for easier access later.
+    if (type && type == "quote") {
+      fs.appendFile(`${dir}/atm_quotes.txt`, lineWithEOL, function (err) {
+        if (err) console.log(`🤖 Something went wrong`);
+        console.log(`🧠 I'll also remember that quote for you!`);
+      });
+    }
   }
 };
 
@@ -46,6 +57,20 @@ const getCurrentFilePath = () => {
   const filePath = `${dir}/${fileName}.txt`;
 
   return filePath;
+};
+
+const getRandomQuote = () => {
+  const filePath = `${dir}/atm_quotes.txt`;
+
+  if (!fs.existsSync(filePath)) {
+    return;
+  }
+  const rawQuotes = fs.readFileSync(filePath).toString("utf-8");
+  const quotes = rawQuotes.split(os.EOL);
+  const quoteString = quotes[Math.floor(Math.random() * quotes.length)];
+  const quote = quoteString.split("|").pop();
+
+  return quote;
 };
 
 exports.getCurrentFilePath = getCurrentFilePath;
