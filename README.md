@@ -20,9 +20,13 @@ Think software log files, but for you. They're versatile, easy to backup and are
 $ npm install -g @udarajay/atm
 ```
 
-## Usage
+## How to use atm
+
+Once your have `atm` installe on your computer you should be able to run `atm` commands from your terminal.
 
 ### `atm log`
+
+For logging things in general.
 
 Accepts a `-m` flag for the `message` and an optional `-t` flag for `type`. Type can be absolutely anything you want, but there are some types that `atm` can understand and review for you when you use the review command.
 
@@ -41,25 +45,51 @@ $ atm log -m smoothie -t drank
 
 ### `atm mood`
 
+For mood tracking.
+
+Run the command `atm mood` and follow the prompts.
+
 ```sh-session
 $ atm mood
-? What's your mood? (Use arrow keys)
-❯ Happy
-  Stressed
-  Anxious
-  Energized
-  Fatigued
-  Sad
-👏 Logged to /Users/user/atm_logs/27-08-2020.txt
+? Name the feeling? (Pick the first you relate to atm) Happy/Aliveness
+? What caused this feeling? something
+? Behaviors or actions this feeling caused me to take? nothing
+? Is this feeling appropriate to the situation? why not
+? What can I do to improve/fix it? (Remember to be kind to yourself) why fix
+👏 Logged to /Users/user/atm_logs/13-09-2020.txt
+```
+
+### `atm decision`
+
+Decision journal.
+
+Run the command `atm decision` and follow the prompts.
+
+```sh-session
+$ atm decision
+? The decision you made: Updating atm logs
+? Mental/Physical state: Focused
+? Situation/Context: stream coding
+? The problem statement or frame: stream coding
+👏 Logged to /Users/user/atm_logs/13-09-2020.txt
 ```
 
 ### `atm review`
 
-Options:
+View your logs.
 
 - `atm review` // Day
 - `atm review week`
 - `atm review month`
+
+OPTIONS
+-x, --extended show extra columns
+--columns=columns only show provided columns (comma-seperated)
+--csv output is csv format
+--filter=filter filter property by partial string matching, ex: name=foo
+--no-header hide table header from output
+--no-truncate do not truncate output to fit screen
+--sort=sort
 
 ```sh-session
 $ atm review
@@ -79,23 +109,13 @@ Mood(s) in timespan
 │ Happy   │   3    │
 │ Anxious │   1    │
 └─────────┴────────┘
-Average sentiment: 1
-Median sentiment:  2
 
-Sentiment over time period
-       4.00 ┤ ╭╮
-       3.25 ┤ │╰╮ ╭
-       2.50 ┼─╯ │ │
-       1.75 ┼   │ │
-       1.00 ┤   │ │
-       0.25 ┤   │ │
-      -0.50 ┤   │ │
-      -1.25 ┤   │ │
-      -2.00 ┤   ╰─╯
+Time   Type     Message
+13:45  mood     Unsettled/Doubt
+16:15  mood     Accepting/Content
+16:27  mood     Hopeful
+16:34  quote    lorem ipsum
+16:52  decision added a decision journal to atm
+17:03  mood     Happy/Aliveness
+17:05  decision Updating atm logs
 ```
-
-## Features
-
-- [x] Sentiment analysis across all logs and moods
-- [ ] Sentiment charting
-- [ ] View logs from a particular day via the cli
