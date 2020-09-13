@@ -30,7 +30,7 @@ const writeLineToCurrentFile = (line, type = null) => {
     if (type && type == "quote") {
       fs.appendFile(`${dir}/atm_quotes.txt`, lineWithEOL, function (err) {
         if (err) console.log(`🤖 Something went wrong`);
-        console.log(`🧠 I'll also remember that quote for you!`);
+        console.log(`🧠 I'll also remember this quote for you!`);
       });
     }
   }

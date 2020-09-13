@@ -72,11 +72,11 @@ class ReviewCommand extends Command {
           minWidth: 7,
         },
         type: {},
-        metaData: {
-          extended: true,
-        },
         message: {
           minWidth: 20,
+        },
+        metaData: {
+          extended: true,
         },
       },
       {
