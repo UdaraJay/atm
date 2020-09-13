@@ -5,49 +5,64 @@ const inquirer = require("inquirer");
 class MoodCommand extends Command {
   async run() {
     const filePath = fileAccessor.getCurrentFilePath();
-    const { flags } = this.parse(MoodCommand);
-    let mood = flags.mood;
 
-    const moods = {
-      Happy: 3,
-      Stressed: -2,
-      Anxious: -2,
-      Energized: 0,
-      Fatigued: -2,
-      Sad: -2,
-    };
-
-    if (!mood) {
-      let responses = await inquirer.prompt([
-        {
-          name: "mood",
-          message: "What's your mood?",
-          type: "list",
-          choices: [
-            { name: "Happy", description: "😊" },
-            { name: "Stressed", description: "😖" },
-            { name: "Anxious", description: "😓" },
-            { name: "Energized", description: "😃" },
-            { name: "Fatigued", description: "😴" },
-            { name: "Sad", description: "😞" },
-          ],
-        },
-      ]);
-
-      mood = responses.mood;
-    }
+    let responses = await inquirer.prompt([
+      {
+        name: "mood",
+        message: "Name the feeling? (Pick the first you relate to atm)",
+        type: "list",
+        choices: [
+          "Happy/Aliveness",
+          "Despair/Sad",
+          "Accepting/Content",
+          "Angry/Annoyed",
+          "Connected/Loving",
+          "Courageous/Powerful",
+          "Curious",
+          "Disconnected/Numb",
+          "Embarrased/Shame",
+          "Fear",
+          "Fragile",
+          "Grateful",
+          "Guilt",
+          "Hopeful",
+          "Powerless",
+          "Stressed/Tense",
+          "Tender/Reflective",
+          "Unsettled/Doubt",
+        ],
+      },
+      {
+        name: "what",
+        message: "What caused this feeling?",
+        type: "input",
+      },
+      {
+        name: "actions",
+        message: "Behaviors or actions this feeling caused me to take?",
+        type: "input",
+      },
+      {
+        name: "isAppropriate",
+        message: "Is this feeling appropriate to the situation?",
+        type: "input",
+      },
+      {
+        name: "fix",
+        message:
+          "What can I do to improve/fix it? (Remember to be kind to yourself)",
+        type: "input",
+      },
+    ]);
 
     const time = fileAccessor.timeStamp();
-    const line = `${time} | mood | sentiment:${moods[mood]} | ${mood}`;
+    const meta = `what:${responses.what}, actions:${responses.actions}, isAppropriate:${responses.isAppropriate}, fix:${responses.fix}`;
+    const line = `${time} | mood | ${meta} | ${responses.mood}`;
 
     fileAccessor.writeLineToCurrentFile(line);
   }
 }
 
 MoodCommand.description = "";
-
-MoodCommand.flags = {
-  mood: flags.string({ char: "m", description: "your mood now" }),
-};
 
 module.exports = MoodCommand;
