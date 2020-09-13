@@ -1,20 +1,12 @@
-const { Command } = require("@oclif/command");
+const { Command, flags } = require("@oclif/command");
 const fs = require("fs");
 const fileAccessor = require("../utils/file");
 const readEachLineSync = require("read-each-line-sync");
-const asciichart = require("asciichart");
-
-const calculateMedian = (array) => {
-  array.sort(function (a, b) {
-    return a - b;
-  });
-  var mid = array.length / 2;
-  return mid % 1 ? array[mid - 0.5] : (array[mid - 1] + array[mid]) / 2;
-};
+const { cli } = require("cli-ux");
 
 class ReviewCommand extends Command {
   async run() {
-    const { args } = this.parse(ReviewCommand);
+    const { args, flags } = this.parse(ReviewCommand);
 
     const timeUnits = {
       day: 1,
@@ -24,13 +16,12 @@ class ReviewCommand extends Command {
 
     const timeUnit = timeUnits[args.timespan];
     const filePaths = fileAccessor.getLastXFilePaths(timeUnit);
+
     let types = [];
     let moods = [];
+    const logs = [];
 
-    // stats
-    const sentiments = [];
-    const sentimentsForGraphing = [];
-
+    // Each file == each day
     filePaths.forEach((filePath) => {
       if (!fs.existsSync(filePath)) {
         return;
@@ -39,50 +30,58 @@ class ReviewCommand extends Command {
       readEachLineSync(filePath, function (line) {
         const a = line.split("|");
         const time = a[0].trim();
-        const type = a[1].trim();
+        const type = a[1] ? a[1].trim() : "log";
 
-        const metaString = a[2].trim();
-        const metaStringList = metaString.split(",");
+        const metaString = a[2] ? a[2].trim() : a[2];
+        const metaStringList = metaString ? metaString.split(",") : [];
         const metaData = [];
 
-        const message = a[3].trim();
+        const message = a[3] ? a[3].trim() : a[3];
 
         metaStringList.forEach((meta) => {
           const metaVars = meta.split(":");
           metaData[metaVars[0]] = metaVars[1];
         });
 
-        if (
-          !isNaN(parseInt(metaData.sentiment)) &&
-          parseInt(metaData.sentiment) != 0
-        ) {
-          sentiments.push(parseInt(metaData.sentiment));
-          sentimentsForGraphing.push(parseInt(metaData.sentiment));
-        }
-
         isNaN(types[type]) ? (types[type] = 1) : (types[type] += 1);
 
         if (type == "mood") {
           isNaN(moods[message]) ? (moods[message] = 1) : (moods[message] += 1);
         }
+
+        const log = {
+          time: time,
+          type: type,
+          message: message,
+          metaData: metaData,
+        };
+
+        logs.push(log);
       });
     });
-
-    const averageSentiment =
-      sentiments.reduce((a, b) => a + b, 0) / sentiments.length;
-
-    const median = calculateMedian(sentiments);
 
     console.log("Summary of all logs");
     console.table(types);
     console.log("Mood(s) in timespan");
     console.table(moods);
-    console.log("Average sentiment:", Math.round(averageSentiment));
-    console.log("Median sentiment: ", Math.round(median));
-    console.log();
-    console.log("Sentiment over time period");
-    console.log(
-      asciichart.plot(sentimentsForGraphing.reverse(), { height: 8 })
+
+    cli.table(
+      logs,
+      {
+        time: {
+          minWidth: 7,
+        },
+        type: {},
+        metaData: {
+          extended: true,
+        },
+        message: {
+          minWidth: 20,
+        },
+      },
+      {
+        ...flags,
+      }
     );
   }
 }
@@ -96,5 +95,31 @@ ReviewCommand.args = [
     options: ["day", "week", "month"],
   },
 ];
+
+ReviewCommand.flags = {
+  columns: flags.string({
+    exclusive: ["additional"],
+    description: "only show provided columns (comma-seperated)",
+  }),
+  sort: flags.string({
+    description: "property to sort by (prepend " - " for descending)",
+  }),
+  filter: flags.string({
+    description: "filter property by partial string matching, ex: name=foo",
+  }),
+  csv: flags.boolean({
+    exclusive: ["no-truncate"],
+    description: "output is csv format",
+  }),
+  extended: flags.boolean({ char: "x", description: "show extra columns" }),
+  "no-truncate": flags.boolean({
+    exclusive: ["csv"],
+    description: "do not truncate output to fit screen",
+  }),
+  "no-header": flags.boolean({
+    exclusive: ["csv"],
+    description: "hide table header from output",
+  }),
+};
 
 module.exports = ReviewCommand;
